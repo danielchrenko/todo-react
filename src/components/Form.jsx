@@ -1,6 +1,13 @@
-function Form() {
+function Form(props) {
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        // OK, this prevents the type=submit button to have default behaviour
+        props.addTask("Say hello!");
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">
             What needs to be done?
